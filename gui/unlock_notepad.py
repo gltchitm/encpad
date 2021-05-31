@@ -1,7 +1,6 @@
 from gi.repository import Gtk
 
 from crypto import decrypt
-from base64 import b64decode
 from store import store
 from json import loads
 

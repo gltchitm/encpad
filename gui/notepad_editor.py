@@ -1,6 +1,6 @@
 from gi.repository import Gtk
 
-from crypto import encrypt, decrypt
+from crypto import encrypt
 from base64 import b64encode
 from store import store
 from json import dumps

@@ -10,8 +10,6 @@ from notepad_editor import NotepadEditor
 from unlock_notepad import UnlockNotepad
 from welcome import Welcome
 
-import crypto
-
 store.set_value("VERSION", "0.1.0-beta")
 store.set_value(
     "ENCRYPTED_DISCLAIMER",

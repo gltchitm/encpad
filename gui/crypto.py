@@ -1,12 +1,10 @@
 import hmac
-import string
 import hashlib
 
 from base64 import b64encode, b64decode
 from Crypto.Cipher import AES
 from secrets import token_hex
 from json import dumps, loads
-from store import store
 
 def pad(string):
     remainder = len(string) % AES.block_size

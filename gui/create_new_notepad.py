@@ -1,6 +1,5 @@
 from gi.repository import Gtk
 
-from notepad_editor import NotepadEditor
 from store import store
     
 class CreateNewNotepad(Gtk.VBox):

@@ -30,8 +30,8 @@ def encrypt(plain_text, password):
     iv = token_hex(8)
     padded_text = pad(plain_text)
     private_key = hash_pw(password, salt)
-    cipher = AES.new(private_key, AES.MODE_CBC, iv)
-    encrypted = cipher.encrypt(padded_text)
+    cipher = AES.new(private_key, AES.MODE_CBC, bytes(iv, "utf-8"))
+    encrypted = cipher.encrypt(bytes(padded_text, "utf-8"))
     return b64encode(
         bytes(
             dumps({
@@ -47,7 +47,7 @@ def decrypt(encrypted_str, password):
     encrypted = loads(b64decode(encrypted_str))
     cipher_text = b64decode(encrypted["cipher_text"])
     private_key = hash_pw(password, encrypted["salt"])
-    cipher = AES.new(private_key, AES.MODE_CBC, encrypted["iv"])
+    cipher = AES.new(private_key, AES.MODE_CBC, bytes(encrypted["iv"], "utf-8"))
     try:
         decrypted = cipher.decrypt(cipher_text).rstrip().decode("utf-8")
     except UnicodeDecodeError:

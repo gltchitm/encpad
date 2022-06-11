@@ -26,9 +26,6 @@ def decrypt(encrypted, password):
     ciphertext = encrypted[32 + 24:len(encrypted) - 16]
     tag = encrypted[len(encrypted) - 16:]
 
-    print(ciphertext.hex())
-    print(tag.hex())
-
     key = hash_secret_raw(
         password,
         salt,

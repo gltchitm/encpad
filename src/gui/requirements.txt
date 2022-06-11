@@ -1,0 +1,6 @@
+argon2-cffi==21.3.0
+cffi==1.15.0
+pycairo==1.21.0
+pycparser==2.21
+pycryptodome==3.14.0
+PyGObject==3.42.1

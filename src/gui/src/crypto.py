@@ -26,6 +26,9 @@ def decrypt(encrypted, password):
     ciphertext = encrypted[32 + 24:len(encrypted) - 16]
     tag = encrypted[len(encrypted) - 16:]
 
+    print(ciphertext.hex())
+    print(tag.hex())
+
     key = hash_secret_raw(
         password,
         salt,
@@ -35,6 +38,7 @@ def decrypt(encrypted, password):
         hash_len=32,
         type=Argon2Type.ID
     )
+
     cipher = ChaCha20_Poly1305.new(key=key, nonce=nonce)
 
     return cipher.decrypt_and_verify(ciphertext, tag)

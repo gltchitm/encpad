@@ -11,6 +11,7 @@ from unlock_notepad import UnlockNotepad
 from welcome import Welcome
 
 store['FORMAT_VERSION'] = '2'
+store['BRAND'] = 'encpadpy'
 store['APPLICATION_VERSION'] = '1.0.0'
 
 class Encpad(Gtk.Window):

@@ -80,8 +80,9 @@ class NotepadEditor(Gtk.VBox):
         if response == Gtk.ResponseType.OK:
             with open(filename, 'wb') as file:
                 file_header = bytes(
-                    'encpad[{format_version}]\0[encpadpy-{application_version}]\0'.format(
+                    'encpad[{format_version}]\0[{brand}-{application_version}]\0'.format(
                         format_version=store['FORMAT_VERSION'],
+                        brand=store['BRAND'],
                         application_version=store['APPLICATION_VERSION']
                     ),
                     'utf-8'
